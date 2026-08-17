@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>会員登録</title>
+    <!-- CSS読み込み -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <div class="header">
+        <h2><a href="main.html">Book</a></h2>
+    </div>
+    <!-- レイアウト -->
+    <div class="content">
+        <!-- サイドバー -->
+        <div class="sidebar">
+            <!-- メニュー-->
+            <div class="list-group">
+                <h5>会員管理</h5>
+                <a class="list-group-item list-group-item-action" href="member_list.html">会員一覧</a>
+                <a class="list-group-item list-group-item-action" href="member_add.html">会員登録</a>
+                <br>
+                <h5>書籍管理</h5>
+                <a class="list-group-item list-group-item-action" href="book_list.html">書籍一覧</a>
+                <a class="list-group-item list-group-item-action" href="book_add.html">書籍登録</a>
+                <a class="list-group-item list-group-item-action" href="lend_list.html">貸出一覧</a>
+                <br>
+                <a class="list-group-item list-group-item-action" href="login.html">ログアウト</a>
+            </div>
+        </div>
+
+        <!-- メイン -->
+        <div class="main">
+            <h3>会員登録</h3>
+            <!-- 検索フォーム -->
+            <form action="member_list.html" method="post">
+                <input type="hidden" id="id" name="id" value="1">
+                <label for="name">氏名</label>
+                <input type="text" id="name" name="name" value="" class="form-control is-invalid">
+                <div class="invalid-feedback">名前は、2文字以上、255文字以下で入力してください。</div>
+                <label for="email">郵便番号</label>
+                <input type="text" class="form-control is-invalid" id="zip_code" name="zip_code" value="">
+                <div class="invalid-feedback">郵便番号を入力してください。</div>
+                <label for="address">住所</label>
+                <input type="text" class="form-control is-invalid" id="address" name="address" value="">
+                <div class="invalid-feedback">住所を入力してください。</div>
+                <label for="address">生年月日</label>
+                <input type="date" class="form-control is-invalid" id="birth" name="birth" value="">
+                <div class="invalid-feedback">生年月日を入力してください。</div>
+                <label for="address">電話番号</label>
+                <input type="text" class="form-control is-invalid" id="phone" name="phone" value="">
+                <div class="invalid-feedback">電話番号を入力してください。</div>
+                <label for="address">メールアドレス</label>
+                <input type="text" class="form-control is-invalid" id="email" name="email" value="">
+                <div class="invalid-feedback">メールアドレスを入力してください。</div>
+                <div class="invalid-feedback">メールアドレスは正しい形式で入力してください。</div>
+                
+                <input type="submit" value="更新" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+    <!-- フッター -->
+    <div class="footer">
+        <span>Copyright(C)2024 CTC Technology Corporation. All rights reserved.</span>
+    </div>
+</body>
+
+</html>

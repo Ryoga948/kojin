@@ -1,0 +1,15 @@
+<th:block th:fragment="sidebar">
+	<!-- メニュー-->
+	<div class="list-group">
+		<h5>会員管理</h5>
+		<a class="list-group-item list-group-item-action" th:href="@{/member_list}">会員一覧</a>
+		<a class="list-group-item list-group-item-action" th:href="@{/member_add}">会員登録</a>
+		<br>
+		<h5>書籍管理</h5>
+		<a class="list-group-item list-group-item-action" th:href="@{/book_list}">書籍一覧</a>
+		<a class="list-group-item list-group-item-action" th:href="@{/book_add}">書籍登録</a>
+		<a class="list-group-item list-group-item-action" th:href="@{/lend_list}">貸出一覧</a>
+		<br>
+		<a class="list-group-item list-group-item-action" th:href="@{/logout}">ログアウト</a>
+	</div>
+</th:block>

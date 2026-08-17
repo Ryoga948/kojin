@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>会員一覧</title>
+    <!-- CSS読み込み -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <div class="header">
+        <h2><a href="main.html">Book</a></h2>
+    </div>
+    <!-- レイアウト -->
+    <div class="content">
+        <!-- サイドバー -->
+        <div class="sidebar">
+            <!-- メニュー-->
+            <div class="list-group">
+                <h5>会員管理</h5>
+                <a class="list-group-item list-group-item-action" href="member_list.html">会員一覧</a>
+                <a class="list-group-item list-group-item-action" href="member_add.html">会員登録</a>
+                <br>
+                <h5>書籍管理</h5>
+                <a class="list-group-item list-group-item-action" href="book_list.html">書籍一覧</a>
+                <a class="list-group-item list-group-item-action" href="book_add.html">書籍登録</a>
+                <a class="list-group-item list-group-item-action" href="lend_list.html">貸出一覧</a>
+                <br>
+                <a class="list-group-item list-group-item-action" href="login.html">ログアウト</a>
+            </div>
+        </div>
+
+        <!-- メイン -->
+        <div class="main">
+            <h3>会員一覧</h3>
+            <!-- フラッシュ -->
+            <div class="alert alert-success">会員情報を変更しました。</div>
+            <!-- 会員一覧 -->
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>氏名</th>
+                        <th>郵便番号</th>
+                        <th>住所</th>
+                        <th>電話番号</th>
+                        <th>E-mail</th>
+                        <th>生年月日</th>
+                        <th>入会年月日</th>
+                        <th>退会年月日</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>阿井太郎</td>
+                        <td>100-1234</td>
+                        <td>東京都</td>
+                        <td>080-1111-1111</td>
+                        <td>ai@dd.co.jp</td>
+                        <td>2000-03-12</td>
+                        <td>2020-03-12</td>
+                        <td></td>
+                        <td>
+                            <a href="member_edit.html" class="btn btn-info">
+                                編集
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>伊田次郎</td>
+                        <td>101-1234</td>
+                        <td>千葉県</td>
+                        <td>080-1111-1111</td>
+                        <td>ida@ct.co.jp</td>
+                        <td>1974-10-02</td>
+                        <td>2020-01-01</td>
+                        <td>2024-12-31</td>
+                        <td>
+                            <a href="member_edit.html" class="btn btn-info">
+                                編集
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>江川太郎</td>
+                        <td>102-1234</td>
+                        <td>佐賀県</td>
+                        <td>080-1111-1111</td>
+                        <td>egawa@dd.co.jp</td>
+                        <td>1948-10-04</td>
+                        <td>2020-03-12</td>
+                        <td></td>
+                        <td>
+                            <a href="member_edit.html" class="btn btn-info">
+                                編集
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>岡本太郎</td>
+                        <td>103-1234</td>
+                        <td>埼玉都</td>
+                        <td>080-1111-1111</td>
+                        <td>okamoto@dd.co.jp</td>
+                        <td>1972-10-05</td>
+                        <td>2020-03-12</td>
+                        <td></td>
+                        <td>
+                            <a href="member_edit.html" class="btn btn-info">
+                                編集
+                            </a>
+
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>甲斐三郎</td>
+                        <td>104-1234</td>
+                        <td>徳島県</td>
+                        <td>080-1111-1111</td>
+                        <td>kai@dd.co.jp</td>
+                        <td>1971-10-06</td>
+                        <td>2020-03-12</td>
+                        <td></td>
+                        <td>
+                            <a href="member_edit.html" class="btn btn-info">
+                                編集
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>木田太郎</td>
+                        <td>444-1234</td>
+                        <td>群馬県</td>
+                        <td>090-7777-7777</td>
+                        <td>kida@dd.co.jp</td>
+                        <td>1971-03-07</td>
+                        <td>2020-03-12</td>
+                        <td></td>
+                        <td>
+                            <a href="member_edit.html" class="btn btn-info">
+                                編集
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>草壁次郎</td>
+                        <td>444-1234</td>
+                        <td>高知県</td>
+                        <td>090-7777-7777</td>
+                        <td>kusakabe@dd.co.jp</td>
+                        <td>1966-05-08</td>
+                        <td>2020-03-12</td>
+                        <td></td>
+                        <td>
+                            <a href="member_edit.html" class="btn btn-info">
+                                編集
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- フッター -->
+    <div class="footer">
+        <span>Copyright(C)2024 CTC Technology Corporation. All rights reserved.</span>
+    </div>
+</body>
+
+</html>

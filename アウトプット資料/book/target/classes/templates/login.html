@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{common/header :: header}"></div>
+
+<body>
+	<!-- ヘッダー -->
+	<div class="header">
+		<h2><a th:href="@{/}">Book</a></h2>
+	</div>
+	<!-- レイアウト -->
+	<div class="content">
+		<!-- メイン -->
+		<div class="container" style="padding:50px;">
+			<!-- フラッシュメッセージ -->
+			<div th:if="${param.error}" class="alert alert-danger">ユーザ名またはパスワードが不正です。</div>
+			<div th:if="${param.logout}" class="alert alert-success">ログアウトしました。</div>
+			<form th:action="@{/login}" method="POST">
+				<label for="username">ユーザ名</label>
+				<input type="text" class="form-control" name="username" id="username">
+				<label for="password">パスワード</label>
+				<input type="password" class="form-control" name="password" id="password">
+				<br>
+				<div class="text-center">
+					<button class="btn btn-primary">
+						ログイン
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!-- フッター -->
+	<div class="footer">
+		<div th:insert="~{common/footer :: footer}"></div>
+	</div>
+</body>
+
+</html>

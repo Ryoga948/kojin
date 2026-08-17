@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:insert="~{common/header :: header}"></div>
+
+<body>
+	<div class="header">
+		<h2><a th:href="@{/}">Book</a></h2>
+	</div>
+	<div class="content">
+		<div class="sidebar">
+			<div th:insert="~{common/sidebar :: sidebar}"></div>
+		</div>
+		<div class="main">
+			<div id="main" th:insert="~{__${main}__}"></div>
+		</div>
+	</div>
+	<div class="footer">
+		<div th:insert="~{common/footer :: footer}"></div>
+	</div>
+</body>
+
+</html>

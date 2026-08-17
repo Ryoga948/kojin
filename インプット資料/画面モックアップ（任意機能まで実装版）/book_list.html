@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>書籍一覧</title>
+    <!-- CSS読み込み -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <div class="header">
+        <h2><a href="main.html">Book</a></h2>
+    </div>
+    <!-- レイアウト -->
+    <div class="content">
+        <!-- サイドバー -->
+        <div class="sidebar">
+            <!-- メニュー-->
+            <div class="list-group">
+                <h5>会員管理</h5>
+                <a class="list-group-item list-group-item-action" href="member_list.html">会員一覧</a>
+                <a class="list-group-item list-group-item-action" href="member_add.html">会員登録</a>
+                <br>
+                <h5>書籍管理</h5>
+                <a class="list-group-item list-group-item-action" href="book_list.html">書籍一覧</a>
+                <a class="list-group-item list-group-item-action" href="book_add.html">書籍登録</a>
+                <a class="list-group-item list-group-item-action" href="lend_list.html">貸出一覧</a>
+                <br>
+                <a class="list-group-item list-group-item-action" href="login.html">ログアウト</a>
+            </div>
+        </div>
+
+        <!-- メイン -->
+        <div class="main">
+            <h3>書籍一覧</h3>
+            <!-- フラッシュ -->
+            <div class="alert alert-success">書籍を追加しました。</div>
+            <!-- 検索フォーム -->
+            <form action="book_list.html" method="GET">
+                <div class="container mb-2">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="category">カテゴリ</label>
+                                <select id="category" name="category" class="form-control">
+                                    <option>すべて</option>
+                                    <option>総記</option>
+                                    <option>哲学</option>
+                                    <option>歴史</option>
+                                    <option>社会科学</option>
+                                    <option>自然科学</option>
+                                    <option>技術</option>
+                                    <option>産業</option>
+                                    <option>芸術</option>
+                                    <option>言語</option>
+                                    <option>文学</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="isbn">ISBN</label>
+                                <input type="text" class="form-control" name="isbn" id="isbn">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="phone">書籍名</label>
+                                <input type="text" class="form-control" name="name" id="name">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="author">著者</label>
+                                <input type="text" class="form-control" name="author" id="author">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="publisher">出版社</label>
+                                <input type="text" class="form-control" name="publisher" id="publisher">
+                            </div>
+                        </div>
+                        <div class="col d-flex flex-column">
+                            <div class="form-group mt-auto">
+                                <input type="submit" value="検索" class="btn btn-primary">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="alert alert-info">検索結果は0件です。他の検索条件で再検索してみてください。
+            </div>
+            <!-- 一覧表示 -->
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>カテゴリ</th>
+                        <th>ISBN</th>
+                        <th>書籍名</th>
+                        <th>著者</th>
+                        <th>出版社</th>
+                        <th>出版日</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>技術</td>
+                        <td>978-4-7981-6364-0</td>
+                        <td>人生を盛り上げるための11のレッスン</td>
+                        <td>ドミニクノゲーズ</td>
+                        <td>青土社</td>
+                        <td>2005-11-11</td>
+                        <td>
+                            <a href="book_detail.html" class="btn btn-info">
+                                詳細
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>技術</td>
+                        <td>978-4-7981-6751-1</td>
+                        <td>ねこと仲良くなるための11のこつ</td>
+                        <td>辰巳一世</td>
+                        <td>筑摩書房</td>
+                        <td>2009-05-11</td>
+                        <td>
+
+                            <a href="book_detail.html" class="btn btn-info">
+                                詳細
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>産業</td>
+                        <td>978-4-7981-6751-2</td>
+                        <td>税金はなぜ高いのか</td>
+                        <td>税博士</td>
+                        <td>筑摩書房</td>
+                        <td>2009-06-11</td>
+                        <td>
+                            <a href="book_detail.html" class="btn btn-info">
+                                詳細
+                            </a>
+                        </td>
+                    </tr>                 
+                    <tr>
+                        <td>4</td>
+                        <td>技術</td>
+                        <td>978-4-7981-6751-3</td>
+                        <td>犬は友達</td>
+                        <td>犬ヒロシ</td>
+                        <td>博士書房</td>
+                        <td>2024-01-01</td>
+                        <td>
+                            <a href="book_detail.html" class="btn btn-info">
+                                詳細
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>歴史</td>
+                        <td>978-4-7981-6751-4</td>
+                        <td>日本の歴史</td>
+                        <td>足利信長</td>
+                        <td>言論出版</td>
+                        <td>2010-08-20</td>
+                        <td>
+                            <a href="book_detail.html" class="btn btn-info">
+                                詳細
+                            </a>
+                        </td>
+                    </tr>  
+                </tbody>
+            </table>
+            <!-- ページネーション -->
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="book_list.html?page=1"> 1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="book_list.html?page=2"> 2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="book_list.html?page=3"> 3</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="book_list.html?page=4"> 4</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="book_list.html?page=2">次</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- フッター -->
+    <div class="footer">
+        <span>Copyright(C)2024 CTC Technology Corporation. All rights reserved.</span>
+    </div>
+</body>
+
+</html>

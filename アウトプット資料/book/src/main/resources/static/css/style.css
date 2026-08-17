@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header,
+.footer,
+.sidebar {
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.content {
+    flex: 1;
+    display: flex;
+}
+
+.sidebar {
+    width: 200px;
+    padding: 20px;
+}
+
+.main {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: auto;
+    }
+}
