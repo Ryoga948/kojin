@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>書籍編集</title>
+    <!-- CSS読み込み -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <div class="header">
+        <h2><a href="main.html">Book</a></h2>
+    </div>
+    <!-- レイアウト -->
+    <div class="content">
+        <!-- サイドバー -->
+        <div class="sidebar">
+            <!-- メニュー-->
+            <div class="list-group">
+                <h5>会員管理</h5>
+                <a class="list-group-item list-group-item-action" href="member_list.html">会員一覧</a>
+                <a class="list-group-item list-group-item-action" href="member_add.html">会員登録</a>
+                <br>
+                <h5>書籍管理</h5>
+                <a class="list-group-item list-group-item-action" href="book_list.html">書籍一覧</a>
+                <a class="list-group-item list-group-item-action" href="book_add.html">書籍登録</a>
+                <a class="list-group-item list-group-item-action" href="lend_list.html">貸出一覧</a>
+                <br>
+                <a class="list-group-item list-group-item-action" href="login.html">ログアウト</a>
+            </div>
+        </div>
+
+        <!-- メイン -->
+        <div class="main">
+            <h3>書籍編集</h3>
+            <!-- フォーム -->
+            <form action="book_detail.html" method="post">
+                <label for="category">カテゴリ</label>
+                <select class="form-control" id="category" name="category">
+                    <option>すべて</option>
+                    <option>総記</option>
+                    <option>哲学</option>
+                    <option>歴史</option>
+                    <option>社会科学</option>
+                    <option>自然科学</option>
+                    <option selected="selected">技術</option>
+                    <option>産業</option>
+                    <option>芸術</option>
+                    <option>言語</option>
+                    <option>文学</option>
+                </select>
+                <input type="hidden" id="id" name="id" value="1">
+                <label for="isbn">ISBN</label>
+                <input type="text" id="isbn" name="isbn" value="978-4-7981-6364-0" class="form-control is-invalid">
+                <div class="invalid-feedback">ISBNを入力してください。</div>
+                <label for="name">書籍名</label>
+                <input type="text" class="form-control is-invalid" id="name" name="name" value="人生を盛り上げるための11のレッスン">
+                <div class="invalid-feedback">書籍名を入力してください。</div>
+                <label for="author">著者</label>
+                <input type="text" class="form-control is-invalid" id="author" name="author" value="ドミニクノゲーズ">
+                <div class="invalid-feedback">著者を入力してください。</div>
+                <label for="publisher">出版社</label>
+                <input type="text" class="form-control is-invalid" id="publisher" name="publisher" value="筑摩書">
+                <div class="invalid-feedback">出版社を入力してください。</div>
+                <label for="published_at">出版日</label>
+                <input type="date" class="form-control is-invalid" id="published_at" name="published_at" value="2005-11-11">
+                <div class="invalid-feedback">出版日を入力してください。</div>
+                
+                <input type="submit" value="更新" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+    <!-- フッター -->
+    <div class="footer">
+        <span>Copyright(C)2024 CTC Technology Corporation. All rights reserved.</span>
+    </div>
+</body>
+
+</html>

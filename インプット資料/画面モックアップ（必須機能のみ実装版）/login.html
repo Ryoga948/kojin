@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>ログイン</title>
+    <!-- CSS読み込み -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <div class="header">
+        <h1>Book</h1>
+    </div>
+    <!-- レイアウト -->
+    <div class="content">
+        <!-- メイン -->
+        <div class="container" style="padding:50px;">
+            <!-- フラッシュメッセージ -->
+            <div class="alert alert-success">ログアウトしました。</div>
+            <div class="alert alert-danger">ユーザ名またはパスワードが不正です。</div>
+            <!-- 検索フォーム -->
+            <form action="main.html" method="post">
+                <label for="username">ユーザ名</label>
+                <input type="text" class="form-control" name="username" id="username">
+                <label for="password">パスワード</label>
+                <input type="password" class="form-control" name="password" id="password">
+                <br>
+                <div class="text-center">
+                    <button class="btn btn-primary">
+                        ログイン
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <div class="footer">
+        <span>Copyright(C)2024 CTC Technology Corporation. All rights reserved.</span>
+    </div>
+</body>
+
+</html>
