@@ -1,4 +1,37 @@
 <div th:fragment="main">
 	<h3>会員一覧</h3>
 	<!-- コードの追加 -->
+	<div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>氏名</th>
+				<th>郵便番号</th>
+				<th>住所</th>
+				<th>電話番号</th>
+				<th>E-mail</th>
+				<th>生年月日</th>
+				<th>入会年月日</th>
+				<th>退会年月日</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="member : ${members}">
+				<td th:text="${member.id}"></td>
+				<td th:text="${member.name}"></td>
+				<td th:text="${member.zipCode}"></td>
+				<td th:text="${member.address}"></td>
+				<td th:text="${member.phone}"></td>
+				<td th:text="${member.email}"></td>
+				<td th:text="${member.birth}"></td>
+				<td th:text="${member.createdAt}"></td>
+				<td th:text="${member.deletedAt}"></td>
+				<td>
+					<a th:href="@{/member_edit/{id}(id=${member.id})}" class="btn btn-info">編集</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
