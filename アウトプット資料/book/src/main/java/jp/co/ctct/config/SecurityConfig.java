@@ -19,6 +19,21 @@ public class SecurityConfig {
 		http.csrf(csrf -> csrf.disable());
 		
 		//コードの追加
+		http.authorizeHttpRequests(authorize -> {
+			authorize
+				.requestMatchers("/login").permitAll()
+				.requestMatchers("/css/**").permitAll()
+				.anyRequest().authenticated();
+		});
+		http.formLogin(form -> {
+			form.defaultSuccessUrl("/", true)
+				.loginPage("/login")
+				.loginProcessingUrl("/login");
+		});
+		http.logout(logout -> {
+			logout.logoutUrl("/logout")
+				.logoutSuccessUrl("/login?logout");
+		});
 		
 		return http.build();
 	}

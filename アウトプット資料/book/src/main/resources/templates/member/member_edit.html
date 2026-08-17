@@ -1,4 +1,38 @@
 <div th:fragment="main">
 	<h3>会員編集</h3>
 	<!-- コードの追加 -->
+	<form th:action="@{/member_edit}" th:object="${member}" method="post">
+		<input type="hidden" th:field="*{id}">
+		<input type="hidden" th:field="*{createdAt}">
+
+		<label for="name">氏名</label>
+		<input type="text" th:field="*{name}" class="form-control" th:errorclass="is-invalid">
+		<div class="invalid-feedback" th:errors="*{name}"></div>
+
+		<label for="zipCode">郵便番号</label>
+		<input type="text" th:field="*{zipCode}" class="form-control" th:errorclass="is-invalid">
+		<div class="invalid-feedback" th:errors="*{zipCode}"></div>
+
+		<label for="address">住所</label>
+		<input type="text" th:field="*{address}" class="form-control" th:errorclass="is-invalid">
+		<div class="invalid-feedback" th:errors="*{address}"></div>
+
+		<label for="birth">生年月日</label>
+		<input type="date" th:field="*{birth}" class="form-control" th:errorclass="is-invalid">
+		<div class="invalid-feedback" th:errors="*{birth}"></div>
+
+		<label for="phone">電話番号</label>
+		<input type="text" th:field="*{phone}" class="form-control" th:errorclass="is-invalid">
+		<div class="invalid-feedback" th:errors="*{phone}"></div>
+
+		<label for="email">メールアドレス</label>
+		<input type="text" th:field="*{email}" class="form-control" th:errorclass="is-invalid">
+		<div class="invalid-feedback" th:errors="*{email}"></div>
+
+		<label for="deletedAt">退会年月日</label>
+		<input type="date" th:field="*{deletedAt}" class="form-control">
+
+		<br>
+		<input type="submit" value="更新" class="btn btn-primary">
+	</form>
 </div>
