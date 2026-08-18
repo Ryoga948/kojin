@@ -16,7 +16,7 @@ VALUES (6, '木田太郎', 'kida@dd.co.jp', '444-1234', '群馬県', '090-7777-7
 INSERT INTO member (id, name, email, zip_code, address, phone, birth, created_at)
 VALUES (7, '草壁次郎', 'kusakabe@dd.co.jp', '444-1234', '高知県', '090-8888-8888','1966-5-8', '2020-03-12');
 
-/* 任意機能から利用する初期データのdata.sql
+-- 任意機能から利用する初期データのdata.sql
 INSERT INTO category (id, name) VALUES(1, '総記');
 INSERT INTO category (id, name) VALUES(2, '哲学');
 INSERT INTO category (id, name) VALUES(3, '歴史');
@@ -57,6 +57,7 @@ VALUES (13, '978-4-7981-6712-1', 'さんすうができるようになるほん'
 INSERT INTO book (id, isbn, name, author, publisher, published_at, category_id)
 VALUES (14, '978-4-7981-6713-1', '楽しい休日の過ごし方', 'ふるたまさあき', '青土社', '2012-6-30', 6);
 
+/*
 INSERT INTO book_detail (disposal_at, lent, start_at, book_id, memo)
 VALUES
 ('2015-12-01', 0x00, '2005-12-01', 1, '劣化のため廃棄'),
