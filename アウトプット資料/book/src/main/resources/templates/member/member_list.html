@@ -2,6 +2,32 @@
 	<h3>会員一覧</h3>
 	<!-- コードの追加 -->
 	<div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+	<form th:action="@{/member_list}" method="get">
+		<div class="container mb-2">
+			<div class="row">
+				<div class="col">
+					<label for="name">氏名</label>
+					<input type="text" class="form-control" name="name" id="name" th:value="${name}">
+				</div>
+				<div class="col">
+					<label for="phone">電話番号</label>
+					<input type="text" class="form-control" name="phone" id="phone" th:value="${phone}">
+				</div>
+				<div class="col">
+					<label for="email">メールアドレス</label>
+					<input type="text" class="form-control" name="email" id="email" th:value="${email}">
+				</div>
+				<div class="col d-flex flex-column">
+					<div class="form-group mt-auto">
+						<input type="submit" value="検索" class="btn btn-primary">
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div th:if="${members.empty}" class="alert alert-info">
+		検索結果は0件です。他の検索条件で再検索してみてください。
+	</div>
 	<table class="table table-bordered">
 		<thead>
 			<tr>
@@ -34,4 +60,15 @@
 			</tr>
 		</tbody>
 	</table>
+	<ul class="pagination" th:if="${members.totalPages > 0}">
+		<li class="page-item" th:each="i : ${#numbers.sequence(0, members.totalPages - 1)}">
+			<a class="page-link"
+				th:href="@{/member_list(page=${i}, name=${name}, phone=${phone}, email=${email})}"
+				th:text="${i + 1}"></a>
+		</li>
+		<li class="page-item" th:unless="${members.last}">
+			<a class="page-link"
+				th:href="@{/member_list(page=${members.number + 1}, name=${name}, phone=${phone}, email=${email})}">次</a>
+		</li>
+	</ul>
 </div>
