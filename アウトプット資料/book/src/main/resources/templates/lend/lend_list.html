@@ -1,0 +1,48 @@
+<div th:fragment="main">
+	<h3>貸出一覧</h3>
+	<div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+
+	<form th:action="@{/lend_list}" method="get">
+		<div class="container mb-2">
+			<div class="row">
+				<div class="col">
+					<label for="returnedDueAt">返却期日</label>
+					<input type="date" class="form-control" name="returnedDueAt" id="returnedDueAt"
+						th:value="${returnedDueAt}">
+				</div>
+				<div class="col d-flex flex-column">
+					<div class="form-group mt-auto">
+						<input type="submit" value="検索" class="btn btn-primary">
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>会員ID</th>
+				<th>書籍詳細ID</th>
+				<th>書籍名</th>
+				<th>貸出年月日</th>
+				<th>返却期日</th>
+				<th>返却年月日</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="lend : ${lends}">
+				<td th:text="${lend.id}"></td>
+				<td th:text="${lend.member.id}"></td>
+				<td th:text="${lend.bookDetail.id}"></td>
+				<td th:text="${lend.bookDetail.book.name}"></td>
+				<td th:text="${lend.createdAt}"></td>
+				<td th:text="${lend.returnedDueAt}"></td>
+				<td th:text="${lend.returnedAt}"></td>
+				<td><a th:href="@{/lend_edit/{id}(id=${lend.id})}" class="btn btn-info">編集</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
