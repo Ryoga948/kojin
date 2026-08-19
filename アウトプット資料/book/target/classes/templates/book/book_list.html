@@ -1,0 +1,81 @@
+<div th:fragment="main">
+	<h3>書籍一覧</h3>
+	<div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+	<form th:action="@{/book_list}" method="get">
+		<div class="container mb-2">
+			<div class="row">
+				<div class="col">
+					<label for="category">カテゴリ</label>
+					<select id="category" name="category" class="form-control">
+						<option value="">すべて</option>
+						<option th:each="item : ${categories}" th:value="${item.id}"
+							th:text="${item.name}" th:selected="${item.id == category}"></option>
+					</select>
+				</div>
+				<div class="col">
+					<label for="isbn">ISBN</label>
+					<input type="text" class="form-control" name="isbn" id="isbn" th:value="${isbn}">
+				</div>
+				<div class="col">
+					<label for="name">書籍名</label>
+					<input type="text" class="form-control" name="name" id="name" th:value="${name}">
+				</div>
+				<div class="col">
+					<label for="author">著者</label>
+					<input type="text" class="form-control" name="author" id="author" th:value="${author}">
+				</div>
+				<div class="col">
+					<label for="publisher">出版社</label>
+					<input type="text" class="form-control" name="publisher" id="publisher" th:value="${publisher}">
+				</div>
+				<div class="col d-flex flex-column">
+					<div class="form-group mt-auto">
+						<input type="submit" value="検索" class="btn btn-primary">
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div th:if="${books.empty}" class="alert alert-info">
+		検索結果は0件です。他の検索条件で再検索してみてください。
+	</div>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>カテゴリ</th>
+				<th>ISBN</th>
+				<th>書籍名</th>
+				<th>著者</th>
+				<th>出版社</th>
+				<th>出版日</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="book : ${books}">
+				<td th:text="${book.id}"></td>
+				<td th:text="${book.category.name}"></td>
+				<td th:text="${book.isbn}"></td>
+				<td th:text="${book.name}"></td>
+				<td th:text="${book.author}"></td>
+				<td th:text="${book.publisher}"></td>
+				<td th:text="${book.publishedAt}"></td>
+				<td>
+					<a th:href="@{/book_detail/{id}(id=${book.id})}" class="btn btn-info">詳細</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<ul class="pagination" th:if="${books.totalPages > 0}">
+		<li class="page-item" th:each="i : ${#numbers.sequence(0, books.totalPages - 1)}">
+			<a class="page-link"
+				th:href="@{/book_list(page=${i}, category=${category}, isbn=${isbn}, name=${name}, author=${author}, publisher=${publisher})}"
+				th:text="${i + 1}"></a>
+		</li>
+		<li class="page-item" th:unless="${books.last}">
+			<a class="page-link"
+				th:href="@{/book_list(page=${books.number + 1}, category=${category}, isbn=${isbn}, name=${name}, author=${author}, publisher=${publisher})}">次</a>
+		</li>
+	</ul>
+</div>
