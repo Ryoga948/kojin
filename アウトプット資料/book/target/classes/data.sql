@@ -16,7 +16,7 @@ VALUES (6, '木田太郎', 'kida@dd.co.jp', '444-1234', '群馬県', '090-7777-7
 INSERT INTO member (id, name, email, zip_code, address, phone, birth, created_at)
 VALUES (7, '草壁次郎', 'kusakabe@dd.co.jp', '444-1234', '高知県', '090-8888-8888','1966-5-8', '2020-03-12');
 
-/* 任意機能から利用する初期データのdata.sql
+-- 任意機能から利用する初期データのdata.sql
 INSERT INTO category (id, name) VALUES(1, '総記');
 INSERT INTO category (id, name) VALUES(2, '哲学');
 INSERT INTO category (id, name) VALUES(3, '歴史');
@@ -71,6 +71,7 @@ VALUES
 (NULL, 0x01, '2021-10-10', 4, ''),
 (NULL, 0x01, '2022-02-02', 4, '');
 
+/*
 INSERT INTO lend (created_at, returned_due_at, book_detail_id, member_id)
 VALUES
 ('2024-01-04', '2024-01-19', 2, 1),

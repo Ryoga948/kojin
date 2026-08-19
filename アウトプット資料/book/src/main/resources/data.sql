@@ -57,7 +57,6 @@ VALUES (13, '978-4-7981-6712-1', 'さんすうができるようになるほん'
 INSERT INTO book (id, isbn, name, author, publisher, published_at, category_id)
 VALUES (14, '978-4-7981-6713-1', '楽しい休日の過ごし方', 'ふるたまさあき', '青土社', '2012-6-30', 6);
 
-/*
 INSERT INTO book_detail (disposal_at, lent, start_at, book_id, memo)
 VALUES
 ('2015-12-01', 0x00, '2005-12-01', 1, '劣化のため廃棄'),
@@ -72,6 +71,7 @@ VALUES
 (NULL, 0x01, '2021-10-10', 4, ''),
 (NULL, 0x01, '2022-02-02', 4, '');
 
+/*
 INSERT INTO lend (created_at, returned_due_at, book_detail_id, member_id)
 VALUES
 ('2024-01-04', '2024-01-19', 2, 1),

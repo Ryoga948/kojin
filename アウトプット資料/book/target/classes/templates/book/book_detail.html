@@ -1,0 +1,61 @@
+<div th:fragment="main">
+	<h3>書籍情報</h3>
+	<div th:if="${message}" class="alert alert-success" th:text="${message}"></div>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>カテゴリ</th>
+				<th>ISBN</th>
+				<th>書籍名</th>
+				<th>著者</th>
+				<th>出版社</th>
+				<th>出版日</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td th:text="${book.id}"></td>
+				<td th:text="${book.category.name}"></td>
+				<td th:text="${book.isbn}"></td>
+				<td th:text="${book.name}"></td>
+				<td th:text="${book.author}"></td>
+				<td th:text="${book.publisher}"></td>
+				<td th:text="${book.publishedAt}"></td>
+				<td>
+					<a th:href="@{/book_edit/{id}(id=${book.id})}" class="btn btn-info">編集</a>
+					<a th:href="@{/bookdetail_add/{id}(id=${book.id})}" class="btn btn-info">追加</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<h3 style="padding-top:16px;">書籍詳細</h3>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>貸出中</th>
+				<th>入荷年月日</th>
+				<th>廃棄年月日</th>
+				<th>備考</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="bookDetail : ${bookDetails}">
+				<td th:text="${bookDetail.id}"></td>
+				<td th:text="${bookDetail.lent ? '貸出中' : ''}"></td>
+				<td th:text="${bookDetail.startAt}"></td>
+				<td th:text="${bookDetail.disposalAt}"></td>
+				<td th:text="${bookDetail.memo}"></td>
+				<td>
+					<a th:href="@{/bookdetail_edit/{id}(id=${bookDetail.id})}" class="btn btn-info">編集</a>
+					<a th:if="${!bookDetail.lent and bookDetail.disposalAt == null}"
+						th:href="@{/lend_add/{id}(id=${bookDetail.id})}" class="btn btn-info">貸出</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
