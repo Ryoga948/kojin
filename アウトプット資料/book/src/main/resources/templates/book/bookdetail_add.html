@@ -1,0 +1,22 @@
+<div th:fragment="main">
+	<h3>書籍詳細追加</h3>
+	<form th:action="@{/bookdetail_add}" th:object="${bookDetail}" method="post">
+		<input type="hidden" name="bookId" th:value="${book.id}">
+
+		<label>ISBN</label>
+		<p th:text="${book.isbn}"></p>
+
+		<label>書籍名</label>
+		<p th:text="${book.name}"></p>
+
+		<label for="startAt">入荷年月日</label>
+		<input type="date" th:field="*{startAt}" class="form-control" th:errorclass="is-invalid">
+		<div class="invalid-feedback" th:errors="*{startAt}"></div>
+
+		<label for="memo">備考</label>
+		<input type="text" th:field="*{memo}" class="form-control">
+
+		<br>
+		<input type="submit" value="追加" class="btn btn-primary">
+	</form>
+</div>
