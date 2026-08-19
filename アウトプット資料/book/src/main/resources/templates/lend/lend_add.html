@@ -1,0 +1,27 @@
+<div th:fragment="main">
+	<h3>貸出登録</h3>
+	<form th:action="@{/lend_add}" method="post">
+		<input type="hidden" name="bookDetailId" th:value="${bookDetail.id}">
+
+		<label for="isbn">ISBN</label>
+		<p id="isbn" th:text="${bookDetail.book.isbn}"></p>
+
+		<label for="name">書籍名</label>
+		<p id="name" th:text="${bookDetail.book.name}"></p>
+
+		<label for="bookDetailId">書籍詳細ID</label>
+		<p id="bookDetailId" th:text="${bookDetail.id}"></p>
+
+		<label for="returnedDueAt">返却期日</label>
+		<p id="returnedDueAt" th:text="${returnedDueAt}"></p>
+
+		<label for="memberId">会員ID</label>
+		<select id="memberId" name="memberId" class="form-control">
+			<option th:each="member : ${members}" th:value="${member.id}"
+				th:text="${member.id + '/' + member.name}"></option>
+		</select>
+
+		<br>
+		<input type="submit" value="更新" class="btn btn-primary">
+	</form>
+</div>

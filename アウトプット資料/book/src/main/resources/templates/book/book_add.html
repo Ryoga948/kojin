@@ -1,0 +1,32 @@
+<div th:fragment="main">
+	<h3>書籍登録</h3>
+	<form th:action="@{/book_add}" th:object="${book}" method="post">
+		<label for="category">カテゴリ</label>
+		<select class="form-control" th:field="*{category}">
+			<option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+		</select>
+
+		<label for="isbn">ISBN</label>
+		<input type="text" th:field="*{isbn}" class="form-control" th:errorclass="is-invalid">
+		<div class="invalid-feedback" th:errors="*{isbn}"></div>
+
+		<label for="name">書籍名</label>
+		<input type="text" th:field="*{name}" class="form-control" th:errorclass="is-invalid">
+		<div class="invalid-feedback" th:errors="*{name}"></div>
+
+		<label for="author">著者</label>
+		<input type="text" th:field="*{author}" class="form-control" th:errorclass="is-invalid">
+		<div class="invalid-feedback" th:errors="*{author}"></div>
+
+		<label for="publisher">出版社</label>
+		<input type="text" th:field="*{publisher}" class="form-control" th:errorclass="is-invalid">
+		<div class="invalid-feedback" th:errors="*{publisher}"></div>
+
+		<label for="publishedAt">出版日</label>
+		<input type="date" th:field="*{publishedAt}" class="form-control" th:errorclass="is-invalid">
+		<div class="invalid-feedback" th:errors="*{publishedAt}"></div>
+
+		<br>
+		<input type="submit" value="更新" class="btn btn-primary">
+	</form>
+</div>

@@ -56,6 +56,27 @@ public class BookController {
 		return "common/layout";
 	}
 
+	@GetMapping("/book_add")
+	public String showBookAdd(Model model) {
+		model.addAttribute("book", new Book());
+		model.addAttribute("categories", categoryRepository.findAll());
+		model.addAttribute("main", "book/book_add::main");
+		return "common/layout";
+	}
+
+	@PostMapping("/book_add")
+	public String addBook(@Valid Book book, BindingResult result, Model model,
+			RedirectAttributes redirectAttributes) {
+		if (result.hasErrors()) {
+			model.addAttribute("categories", categoryRepository.findAll());
+			model.addAttribute("main", "book/book_add::main");
+			return "common/layout";
+		}
+		bookRepository.save(book);
+		redirectAttributes.addFlashAttribute("message", "書籍を追加しました。");
+		return "redirect:/book_list";
+	}
+
 	@GetMapping("/book_edit/{id}")
 	public String showBookEdit(@PathVariable Long id, Model model) {
 		model.addAttribute("book", bookRepository.findById(id).orElseThrow());
