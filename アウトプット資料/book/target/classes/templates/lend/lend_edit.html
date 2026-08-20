@@ -1,0 +1,28 @@
+<div th:fragment="main">
+	<h3>貸出編集</h3>
+	<form th:action="@{/lend_return}" method="post">
+		<input type="hidden" name="id" th:value="${lend.id}">
+
+		<label for="isbn">ISBN</label>
+		<p id="isbn" th:text="${lend.bookDetail.book.isbn}"></p>
+
+		<label for="name">書籍名</label>
+		<p id="name" th:text="${lend.bookDetail.book.name}"></p>
+
+		<label for="bookDetailId">書籍詳細ID</label>
+		<p id="bookDetailId" th:text="${lend.bookDetail.id}"></p>
+
+		<label for="returnedDueAt">返却期日</label>
+		<p id="returnedDueAt" th:text="${lend.returnedDueAt}"></p>
+
+		<label for="memberId">会員ID</label>
+		<p id="memberId" th:text="${lend.member.id + '/' + lend.member.name}"></p>
+
+		<label for="returnedAt">返却日</label>
+		<input type="date" class="form-control" id="returnedAt" name="returnedAt"
+			th:value="${lend.returnedAt}">
+
+		<br>
+		<input type="submit" value="更新" class="btn btn-primary">
+	</form>
+</div>

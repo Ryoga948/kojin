@@ -18,8 +18,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Member {
-	
-	// コードの追加
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;

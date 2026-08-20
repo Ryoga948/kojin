@@ -12,24 +12,26 @@ import org.springframework.stereotype.Service;
 
 import jp.co.ctct.model.User;
 import jp.co.ctct.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
 @Service
 public class UserDetailServiceImpl implements UserDetailsService {
-	
-	private final UserRepository repository;
-	
+
+	private final UserRepository userRepository;
+
+	public UserDetailServiceImpl(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
-		User user = repository.findByUsername(username);
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		User user = userRepository.findByUsername(username);
 		if (user == null) {
-            throw new UsernameNotFoundException("User not found");
-        }
-		List<GrantedAuthority> grantedAuthories = new ArrayList<>();
-        grantedAuthories.add(new SimpleGrantedAuthority("ROLE_" + user.getRole()));
+			throw new UsernameNotFoundException("User not found");
+		}
+
+		List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
+		grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_" + user.getRole()));
 		return new org.springframework.security.core.userdetails.User(
-				user.getUsername(),user.getPassword(),grantedAuthories
-				);	
+				user.getUsername(), user.getPassword(), grantedAuthorities);
 	}
 }
